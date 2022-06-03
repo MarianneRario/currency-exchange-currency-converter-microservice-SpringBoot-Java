@@ -1,0 +1,5 @@
+Currency Exchange Service
+http://localhost:8000/currency-exchange/from/USD/to/PHP
+
+Currency Conversion Service
+http://localhost:8100/currency-conversion/from/USD/to/PHP/quantity/10
