@@ -22,10 +22,10 @@ public class ApiGatewayConfiguration {
                         .uri("lb://currency-exchange"))
                 .route(predicateSpec -> predicateSpec.path("/currency-conversion/**")
                         .uri("lb://currency-conversion"))
-                .route(predicateSpec -> predicateSpec.path("/currency-conversion-feign/**") // not working
+                .route(predicateSpec -> predicateSpec.path("/currency-conversion-feign/**") // now working
                         .filters(f -> f.rewritePath(
                                 "/currency-conversion-feign/(?<segment>.*)", // custom url (kung ano gusto mo)
-                                "/currency-conversion/(${segment}")) // saan mare redirect
+                                "/currency-conversion/${segment}")) // saan mare redirect
                         .uri("lb://currency-conversion"))
                 .build();
     }
