@@ -3,3 +3,21 @@ http://localhost:8000/currency-exchange/from/USD/to/PHP
 
 Currency Conversion Service
 http://localhost:8100/currency-conversion/from/USD/to/PHP/quantity/10
+http://localhost:8100/currency-conversion/feign/from/USD/to/PHP/quantity/10
+
+
+Eureka
+http://localhost:8761/
+
+API Gateway
+http://localhost:8765/CURRENCY-EXCHANGE/currency-exchange/from/USD/to/PHP
+    - passed the name which the currency exchange is registered with
+    - we want the api gateway to talk to eureka with that name to find the server location
+    - and execute request to this url: /currency-exchange/from/USD/to/PHP
+    To enable this feature in spring cloud, we need to add this in applications.properties in  API Gateway
+        spring.cloud.gateway.discovery.locator.enabled = true
+
+    URLS
+    - http://localhost:8765/currency-exchange/currency-exchange/from/USD/to/PHP
+    - http://localhost:8765/currency-conversion/currency-conversion/from/USD/to/PHP/quantity/10
+    - http://localhost:8765/currency-conversion/currency-conversion/feign/from/USD/to/PHP/quantity/10
